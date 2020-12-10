@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.chenxiaoning.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="top.chenxiaoning.dao.User">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="userName" jdbcType="VARCHAR" property="userName" />
+        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
+        <result column="realName" jdbcType="VARCHAR" property="realName" />
+    </resultMap>
+
+<!--    <select id="Sel" resultType="top.chenxiaoning.dao.User">-->
+<!--        select * from user where id = #{id}-->
+<!--    </select>-->
+
+    <select id="SelByNameAndPwd" resultType="int">
+        select count(1) from user_ning where user_name = #{userName} and password = #{password}
+
+    </select>
+    <select id="SelByName" resultType="int">
+        select count(1) from user_ning where user_name = #{userName}
+
+    </select>
+    <insert id="InsertUser" >
+      insert into user_ning (user_name,password) values(#{userName},#{password})
+      insert into user_ning (user_name,password) values("admin","admin")
+
+    </insert>
+<update id="UpDatePID">
+    update user_ning set password=#{password} where id=#{id}
+</update>
+
+    <delete id="DeleteName" >
+   delete from user_ning where id=#{id}
+
+</delete>
+</mapper>

@@ -1,0 +1,25 @@
+server:
+  port: 8765
+
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://129.226.185.164:3306/ning?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 524967747
+
+mybatis:
+  #config-locations: mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: top.chenxiaoning.dao
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug

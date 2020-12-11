@@ -40,8 +40,8 @@
               //监听提交
               form.on('submit(login)', function(data){
                   var params = {};
-                  params.UserName = data.field.username;
-                  params.Password =data.field.password;
+                  params.userName = data.field.username;
+                  params.password =data.field.password;
                   $.ajax({
                       type: 'post',
                       url: "login",
@@ -50,7 +50,7 @@
                       success: function (res) {
                           console.info(res)
                           if (res.code==20000){
-                              window.location.href = "index";
+                              window.location.href = "/index";
                           }else {
                               layer.alert(res.message, {icon: 5}, function () {
                                   // 获得frame索引
